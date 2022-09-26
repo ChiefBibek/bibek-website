@@ -1,0 +1,369 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+
+/* common css */
+html,
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+}
+section{
+    padding: 50px;
+    background: #000;
+}
+#scrollPath
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+}
+#progressbar
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    animation: animate 5s linear infinite;
+}
+@keyframes animate
+{
+    0%,100%
+    {
+        filter: hue-rotate(0deg);
+    }
+    50%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+#progressbar:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(10px);
+}
+#progressbar:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(30px);
+}
+/* header */
+.bgcolor{
+   background-image: url(../img/bg.jpg);
+   background-size: auto;
+
+}
+.navbar-brand{
+    font-size: 1.5rem;
+}
+.nav-link{
+    font-size: 1.2rem;
+}
+/* home */
+#home{
+    width: 100%;
+    height: 100vh;
+
+}
+#particles-js{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0; left: 0;
+   background-image: url(../img/bg.jpg);
+   background-size: cover;
+}
+
+#name{
+    margin-top: auto;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.699);
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Bungee Spice', cursive;
+
+}
+#tagline{
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    font-family: 'Bungee Spice', cursive;
+}
+
+#learn-more{
+    padding: .4rem 1rem;
+    max-width: 10rem;
+    margin: auto;
+    display: block;
+    border: 2px solid #fff;
+    border-radius: 1rem;
+    color: #fff;
+    text-decoration: dotted;
+    text-align: center;
+}
+#learn-more:hover{
+    text-decoration: none;
+}
+/* hobbies */
+#hobbies{
+    width: 100%;
+    height: auto;
+    padding: 10rem 0;
+    background-image: url(../img/star.png);
+}
+#hobbies .card{
+    position: relative;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 40px;
+    background:linear-gradient(235deg,#89ff00,#010615,#00bcd4);
+    transition: 0.5s;
+
+}
+#hobbies .card .imgx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+
+
+}
+#hobbies .card .imgx img{
+    max-width: 100%;
+    opacity: 0.1;
+    transition: 0.5s;
+
+}
+#hobbies .card:hover .imgx img{
+    opacity: 1;
+}
+#hobbies .card:before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+}
+#hobbies .card:after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -2;
+    filter: blur(40px);
+}
+#hobbies .card:nth-child(1):before,
+#hobbies .card:nth-child(1):after{
+    background: linear-gradient(235deg,#89ff00,#010615,#00bcd4);
+}
+#hobbies .card:nth-child(2):before,
+#hobbies .card:nth-child(2):after{
+    background: linear-gradient(235deg,#ff005e,#010615,#fbff00);
+}
+#hobbies .card:nth-child(3):before,
+#hobbies .card:nth-child(3):after{
+    background: linear-gradient(235deg,#772aff,#010615,#2196F3);
+}
+#hobbies .card .card-body
+{
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: auto;
+    background:rgb(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: 0.5s;
+    flex-wrap: wrap;
+    
+}
+#hobbies .card:hover .card-body{
+    opacity: 1;
+}
+#hobbies .card .card-body h5{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 1px;
+
+}
+#hobbies .card .card-body h5 span{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 2px;
+    
+}
+.wrapper{opacity: 0.99;}
+/* projects */
+#project .card:before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+}
+#project .card:after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -2;
+    filter: blur(40px);
+}
+#projects{
+    width: 100%;
+    height: auto;
+    padding: 15rem 0;
+    background-image: url(../img/star.png);
+}
+#projects img{
+    margin-top: 30px;
+    width: 100%;
+    height: 220px;
+}
+#projects .grid{
+    position: relative;
+    width: 100%;
+}
+
+#projects .grid:hover .overlay{
+    position: absolute;
+    margin-top: 30px;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    width: 100%;
+    opacity: 0.7;
+    transition: .5s ease;
+    background: linear-gradient(235deg,#89ff00,#010615,#00bcd4);
+}
+#projects .grip .overlay{
+    opacity: 0;
+}
+#projects .grid:hover .text{
+    color: #fffefe;
+    font-size: 1.7rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 1;
+}
+
+/* contact */
+#contact{
+    width: 100%;
+    height: auto;
+    padding: 4rem 0;
+    background-image: url(../img/star.png);
+}
+#contact form{
+    width: 100%;
+}
+#contact form input,
+#contact form textarea{
+    background: #ffffff;
+}
+ .submit-message{
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: #105dd8;
+    color: #fff;
+}
+/* footer */
+footer{
+    width: 100%;
+    height: auto;
+    padding: 2rem 0 4rem;
+    background: #ffffff;
+}
+footer ul{
+    list-style: none;
+    padding-left: 0;
+}
+footer .back-to-top{
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+
+}
+footer .back-to-top:hover{
+text-decoration: none;
+color: #105dd8;
+}
+footer .ul#social{
+text-align: right;
+list-style: none;
+padding-left: 0;
+}
+footer ul#social li{
+    display: inline-block;
+    margin-left: 1rem;
+}
+footer ul#social a{
+    text-decoration: none;
+    color: #333;
+    font-size: 2rem;
+}
+footer ul#social a:hover{
+    text-decoration: none;
+    color: #105dd8;
+    
+}
+footer p{
+    color: #333;
+  
+}
+footer p:hover{
+    color: #105dd8;
+    text-transform: capitalize;
+
+}
