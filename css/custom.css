@@ -67,7 +67,7 @@ section{
 }
 /* header */
 .bgcolor{
-   background-image: url(../img/bg.png);
+   background-image: url(../img/bg.jpg);
 
 }
 .navbar-brand{
@@ -87,7 +87,7 @@ section{
     min-height: 100vh;
     position: absolute;
     top: 0; left: 0;
-   background-image: url(../img/bg.png);
+   background-image: url(../img/bg.jpg);
    /* background-size: contain; */
 }
 
