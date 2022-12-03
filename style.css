@@ -1,6 +1,6 @@
 body{
     
-     background-image: url('../img/worldCup.png');
+     background-image: url("img/worldCup.png");
     background-repeat: no-repeat;
 }
 .button {
