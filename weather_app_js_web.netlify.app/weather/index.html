@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather app</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/c2e8489943.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="background">
+
+        <div class="weather">
+            <div class="searchbox">
+                <input type="text" class="search" placeholder="Type in the city">
+
+                <button class="search-btn">Search</button>
+                <div class="location"><i class="fa-solid fa-location-dot" id="location-dot"></i>
+
+                </div>
+            </div>
+            <div class="location-time">
+                <p class="location-update"><span class="city">
+                    </span>,
+                    <span class="country">
+                    </span>
+                </p>
+                <p class="last-updated">Last Updated:</p>
+                <p class="time-update"><span class="day-update"></span> <span class="date-update"></span></span>
+                    <span class="month-update"></span>,
+                    <span class="time-update-span"></span>
+                </p>
+
+            </div>
+            <div class="current-temperature">
+                <p class="temperature-detail"></p>
+                <div class="current-temperature-data">
+                    <div class="icon-temperature">
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="icon-img-temperature">
+                        <p><span class="current-temperature-no"></span><sup class="current-deg">&deg;C</sup></p>
+                    </div>
+                    <div class="current-data">
+                        <p>Humidity: <span class="humidity">88</span> %</p>
+                        <!-- <p>Wind: <span class="wind">063 </span> m/s</p> -->
+                        <p>Air Pressure: <span class="airpressure">999</span> hPa</p>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="forecast">
+                <p class="forecast-text">Check the forecast for the upcoming hours</p>
+                <div class="weather-forecast">
+                    <div class="forecast-time-icon-temperature">
+                        <p class="time-forecast">
+
+                        </p>
+                        <img src="" alt="sunny-cloudy" class="icon-forecast">
+                        <p><span class="temperature-forecast"></span><sup class="current-deg">&deg;C</sup></span>
+                        </p>
+                    </div>
+                    <div class="forecast-time-icon-temperature">
+                        <p class="time-forecast">
+
+                        </p>
+                        <img src="" alt="sunny-cloudy" class="icon-forecast">
+                        <p><span class="temperature-forecast"></span><sup class="current-deg">&deg;C</sup></span>
+                        </p>
+                    </div>
+                    <div class="forecast-time-icon-temperature">
+                        <p class="time-forecast">
+
+                        </p>
+                        <img src="" alt="sunny-cloudy" class="icon-forecast">
+                        <p><span class="temperature-forecast"></span><sup class="current-deg">&deg;C</sup></span>
+                        </p>
+                    </div>
+                    <div class="forecast-time-icon-temperature">
+                        <p class="time-forecast">
+
+                        </p>
+                        <img src="" alt="sunny-cloudy" class="icon-forecast">
+                        <p><span class="temperature-forecast"></span><sup class="current-deg">&deg;C</sup></span>
+                        </p>
+                    </div>
+                    <div class="forecast-time-icon-temperature mob-hide">
+                        <p class="time-forecast">
+
+                        </p>
+                        <img src="" alt="sunny-cloudy" class="icon-forecast">
+                        <p><span class="temperature-forecast"></span><sup class="current-deg">&deg;C</sup></span>
+                        </p>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <p class="name-info">Created by <a href="https://www.bibekbikramshahi.com.np/">Bibek Bikram Shahi</a></p>
+
+
+    </section>
+
+    <script src="./js/script.js" async defer></script>
+    <script type='text/javascript' src='config.js'></script>
+</body>
+
+</html>
