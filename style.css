@@ -580,6 +580,9 @@ transition: .5s ease;
     .right form .error-box{
        width: 150px;
     }
+    .home-img{
+    width: 25rem;
+    }
 
  }
 
