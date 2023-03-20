@@ -2,10 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Tilt Neon', cursive;
-}
-
-  @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+    font-family: 'Ubuntu', sans-serif;}
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 :root {
     --txt-clr: white;
     --bg-btn: rgba(255, 255, 255, 0.371);
@@ -88,10 +86,10 @@
 }
 .searchbox input{
     background-color: rgba(255, 255, 255, 0.507);
+    color: #ffff;
 }
 .searchbox input{
     background-color: rgba(255, 255, 255, 0.507);
-    color: #ffff;
 }
 .searchbox  input::placeholder{
    color: #ffff;
@@ -123,7 +121,7 @@
 }
 
 .current-temperature-data {
-    font-family: 'Tilt Neon', cursive;
+    font-family: 'Ubuntu', sans-serif;
     margin-top: 1rem;
     display: flex;
 }
@@ -237,14 +235,6 @@
 }
 
 @media (max-width: 720px) {
-    /* @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');    * {
-font-family: 'Tilt Neon', cursive;    } */
-    /* .background {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
     .weather {
         top: 5rem;
         /* padding-top: 6rem; */
