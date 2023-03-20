@@ -2,11 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Baloo 2", cursive;
+    font-family: 'Tilt Neon', cursive;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Open+Sans:wght@300&display=swap");
-
+  @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 :root {
     --txt-clr: white;
     --bg-btn: rgba(255, 255, 255, 0.371);
@@ -16,26 +15,24 @@
 }
 
 .background {
-    background-image: linear-gradient( to top, #23479bcf, #86549a70, #b96c96ba, #d88e97e3, #c7a4a4fc), url(../images/background.jpg);
+    background-image:url("https://source.unsplash.com/1600x900/?landscape,weather,nepal");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* width: 100vw; */
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .weather {
     width: 45rem;
-    height: 30rem;
-    /* background-color: red; */
-    background-image: linear-gradient( to bottom, #c566be, #9f62b9, #795eb0, #5358a2, #2a5091);
+    height: 35rem;
+    background-color: #000000; 
+    opacity:0.8;
     margin: auto;
     position: relative;
-    top: 1rem;
+    top: 5rem;
     border-radius: 20px;
     box-shadow: 13px 15px 57px -6px black;
-    /* margin-top: 2rem; */
 }
 
 .searchbox {
@@ -55,7 +52,6 @@
 .search {
     width: 50%;
     padding-left: 1rem;
-    /* width: 16rem; */
 }
 
 .search-btn {
@@ -90,6 +86,15 @@
     letter-spacing: 2px;
     transition: 0.2s ease-in-out;
 }
+.searchbox input{
+    background-color: rgba(255, 255, 255, 0.507);
+}
+.searchbox input{
+    background-color: rgba(255, 255, 255, 0.507);
+}
+.searchbox  input::placeholder{
+   color: #ffff;
+}
 
 .search-btn:hover,
 .location:hover {
@@ -117,7 +122,7 @@
 }
 
 .current-temperature-data {
-    font-family: "Baloo 2", cursive;
+    font-family: 'Tilt Neon', cursive;
     margin-top: 1rem;
     display: flex;
 }
@@ -139,12 +144,12 @@
     font-size: 1rem;
 }
 
-.current-data {
+.current-data{
     margin-left: 10rem;
 }
 
-.current-data p {
-    font-size: 0.7rem;
+.current-data p ,.time-update,.last-updated{
+    font-size: 1rem;
 }
 
 .forecast {
@@ -174,6 +179,7 @@
 }
 
 .name-info {
+    position: relative;
     text-align: center;
     margin-top: 3rem;
     color: var(--txt-clr);
@@ -182,7 +188,7 @@
 
 .name-info a {
     color: rgb(0, 238, 255);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .name-info a:hover {
@@ -230,10 +236,8 @@
 }
 
 @media (max-width: 720px) {
-    @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap");
-    * {
-        font-family: "Roboto", sans-serif;
-    }
+    /* @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');    * {
+font-family: 'Tilt Neon', cursive;    } */
     /* .background {
     display: flex;
     flex-direction: column;
