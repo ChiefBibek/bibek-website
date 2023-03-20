@@ -91,6 +91,7 @@
 }
 .searchbox input{
     background-color: rgba(255, 255, 255, 0.507);
+    color: #ffff;
 }
 .searchbox  input::placeholder{
    color: #ffff;
