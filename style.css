@@ -21,6 +21,23 @@ font-family: 'Tilt Neon', cursive;
     --main-colour:#cb80ff;
 }
 
+::selection{
+background: var(--text-colour);
+color: var(--bg-colour);
+}
+
+html::-webkit-scrollbar {
+    width: 1.4rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--bg-colour);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--text-colour);
+}
+
 html{
     font-size:62.5%;
     overflow-x: hidden;
