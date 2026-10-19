@@ -2,379 +2,729 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF_8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Bibek Bikram Shahi">
-    <meta name="description" content="I am a BSc CSIT student currently enrolled at Bhaktapur Multiple Campus.">
+    <meta name="description"
+        content="Bibek Bikram Shahi — Data & Analytics Engineer in Kathmandu building SQL Server warehouses, SSAS cubes and Power BI dashboards.">
     <meta name="keywords"
-        content="Bibek, Shahi, Bibek Bikram Shahi, Bibek, web developer,csit student, bibek_b_shai, portfolio website, nepal, Nepal,bibek,bibekbikranshahi,bibek.bikramshahi,bibekshahi,bibek bikram shahi">
+        content="Bibek, Shahi, Bibek Bikram Shahi, data engineer, analytics engineer, BI developer, Power BI, SQL Server, SSAS, MDX, ClickHouse, data analyst, csit student, bibek_b_shai, portfolio website, nepal, Nepal,bibek,bibekbikranshahi,bibek.bikramshahi,bibekshahi,bibek bikram shahi">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Bibek Bikram Shahi">
     <meta name="classification" content="personal">
+    <meta name="theme-color" content="#04060a">
     <title>Bibek Bikram Shahi</title>
-    <link rel="icon" style="size: 5rem;" type="image/png" href="img/logo-min.png">
-    <!--box icons-->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!--custom css-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="icon" type="image/png" href="img/logo-min.png">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- custom css -->
     <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
-    <div id="loaderContainer">
-        <div id="loaderGif"></div>
+    <div id="loaderContainer" aria-hidden="true">
+        <div id="loaderGif"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
-    <style>
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
 
-        #loaderContainer {
-            height: 100vh;
-            width: 100%;
-            background: radial-gradient(circle, #01000E 0%, #000000 100%);
-            position: absolute;
-            z-index: 100000;
-            display: grid;
-            align-content: center;
-            justify-content: center;
-            overflow-y: hidden;
-            position: fixed;
-        }
-
-        #loaderGif {
-            height: 4rem;
-            width: 4rem;
-            border-radius: 50%;
-            border: 2px solid #8956f1;
-            border-top: 5px dashed;
-            border-bottom: 0;
-            border-color: #8956f1;
-            animation: loaderOut 2s linear infinite;
-        }
-
-        @keyframes loaderOut {
-            0% {
-                transform: rotate(0);
-            }
-
-            25% {
-                transform: rotate(-180deg);
-            }
-
-            50% {
-                transform: rotate(0);
-            }
-
-            75% {
-                transform: rotate(180deg);
-            }
-
-            100% {
-                transform: rotate(0);
-            }
-        }
-    </style>
-
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <!-- header design -->
     <header class="header">
-        <a href="#" class="logo"><img style="width: 7rem;" src="img/logo-min.png" alt="loading"></a>
+        <a href="#home" class="logo" aria-label="Home"><img src="img/logo-min.png" alt="Bibek Bikram Shahi logo"></a>
 
-        <i class='bx bx-menu' id="menu-icon"></i>
-
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#hobbies">Hobbies</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
+        <nav class="navbar" id="primary-nav">
+            <a href="#about"><span class="nav-index">01</span>About</a>
+            <a href="#experience"><span class="nav-index">02</span>Experience</a>
+            <a href="#stack"><span class="nav-index">03</span>Stack</a>
+            <a href="#portfolio"><span class="nav-index">04</span>Work</a>
+            <a href="#hobbies"><span class="nav-index">05</span>Hobbies</a>
+            <a href="#contact"><span class="nav-index">06</span>Contact</a>
         </nav>
+
+        <div class="header-right">
+            <button class="menu-toggle" id="menu-icon" type="button" aria-label="Toggle navigation"
+                aria-expanded="false" aria-controls="primary-nav">
+                <i class="bx bx-menu"></i>
+            </button>
+        </div>
     </header>
 
-    <div>
-        <!--home section desigh-->
+    <main>
+        <!-- hero -->
+        <section class="hero" id="home">
+            <div class="hero-canvas" aria-hidden="true">
+                <canvas id="hero-canvas"></canvas>
+            </div>
 
+            <div class="container hero-inner">
+                <p class="hero-kicker reveal">
+                    <span class="mini-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                    Data &amp; Analytics Engineer · Kathmandu
+                </p>
 
+                <h1 class="hero-title kinetic" aria-label="Bibek Bikram Shahi">
+                    <span class="line" data-parallax="-0.12" aria-hidden="true"><span>Bibek</span></span>
+                    <span class="line line--indent" data-parallax="0.1" aria-hidden="true"><span>Bikram</span></span>
+                    <span class="line" data-parallax="-0.06" aria-hidden="true"><span
+                            class="outline">Shahi</span></span>
+                </h1>
 
-
-        <section class="home" id="home">
-            <div class="row">
-                <img class="home-img" src="img/me-min.png" alt="loading">
-                <div class="home-content">
-                    <h3>Hey,Welcome To My Website</h3>
-                    <h1>Myself Bibek Bikram Shahi</h1>
-                    <h3>And I am a <span class="multiple"> </span> </h3>
-                    <p>You think it, I code it.</p>
-                    <div class="social-media">
-                        <a href="https://www.facebook.com/bibek.bikramshahi" target="_blank"><i
-                                class='bx bxl-facebook bx'></i></a>
-                        <a href="https://twitter.com/Bibekbikram123" target="_blank"><i
-                                class='bx bxl-twitter bx'></i></a>
-                        <a href="https://www.instagram.com/bibek_b_shahi/" target="_blank"><i
-                                class='bx bxl-instagram-alt bx'></i></a>
-                        <a href="https://www.linkedin.com/in/bibekbikramshahi" target="_blank"><i
-                                class='bx bxl-linkedin bx'></i></a>
-                        <a href="https://github.com/ChiefBibek" target="_blank"><i class='bx bxl-github bx'></i></a>
-                    </div>
-                    <a href="mailto:bibekbikramshahi6666@gmail.com" target="_blank" class="btn">Mail me</a>
+                <p class="hero-tagline reveal">I turn messy ERP data into warehouses, cubes and dashboards that teams
+                    actually trust.</p>
+                <div class="hero-actions reveal">
+                    <a href="mailto:bibekbikramshahi6666@gmail.com" class="btn btn-primary">Mail me <i
+                            class="bx bx-right-arrow-alt"></i></a>
+                    <a href="CVme.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download CV <i
+                            class="bx bx-download"></i></a>
                 </div>
             </div>
         </section>
 
-        <!--about section design-->
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker-track">
+                <span>SQL Server</span><span>SSAS</span><span>MDX</span><span>Power BI</span><span>DAX</span>
+                <span>Python</span><span>PySpark</span><span>ClickHouse</span><span>Kafka</span>
+                <span>Databricks</span><span>ETL</span><span>Data Warehousing</span>
+                <span>SQL Server</span><span>SSAS</span><span>MDX</span><span>Power BI</span><span>DAX</span>
+                <span>Python</span><span>PySpark</span><span>ClickHouse</span><span>Kafka</span>
+                <span>Databricks</span><span>ETL</span><span>Data Warehousing</span>
+            </div>
+        </div>
+
+        <!-- about -->
         <section class="about" id="about">
-            <div class="about-img">
-                <img src="img/profile-min.png" alt="wait">
-            </div>
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow reveal"><span>01</span> / About</p>
+                    <h2 class="heading kinetic">
+                        <span class="line"><span>About</span></span>
+                        <span class="line"><span class="accent">me</span></span>
+                    </h2>
+                </div>
 
-            <div class="about-content">
-                <h2 class="heading">About<span> Me</span></h2>
-                <h3>BSc.CSIT Student | AI/ML Enthusiast</h3>
-                <p>I am a BSc CSIT student at Bhaktapur Multiple Campus with a deep passion for Data Science, Machine
-                    Learning, Artificial
-                    Intelligence, and Generative AI. My work involves exploring cutting-edge advancements in AI/ML,
-                    including generative
-                    models, while continuously expanding my skills in data analytics and innovative problem-solving. I
-                    am committed to
-                    staying at the forefront of technology, contributing to meaningful projects, and driving impactful
-                    results in the field
-                    of AI.</p>
-                <a href="CVme.pdf" target="_blank" class="btn">Download CV</a>
+                <div class="about-grid">
+                    <figure class="about-img reveal">
+                        <img class="board-aura" src="img/profile-cutout.webp" alt="" aria-hidden="true"
+                            loading="lazy">
+                        <img class="sticker sticker--main" src="img/profile-sticker.webp"
+                            alt="Portrait of Bibek Bikram Shahi" loading="lazy">
+                        <img class="sticker sticker--ride" src="img/profile-min.png"
+                            alt="Bibek Bikram Shahi with his motorbike" loading="lazy">
+                        <span class="sticker sticker--chart" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+                        <span class="sticker sticker--chip">Power BI · SQL</span>
+                        <figcaption>Kathmandu, NP</figcaption>
+                    </figure>
+
+                    <div class="about-content">
+                        <h3 class="about-lead reveal">Associate BI Developer · BSc CSIT student</h3>
+                        <p class="reveal">I build the data foundations and the dashboards on top of them. At Agile
+                            Solutions I shape SQL Server warehouses, model SSAS cubes and deliver Power BI reports that
+                            give sales, finance, HR and service teams a clear view of how their business is doing. A
+                            lot of that work lives inside Microsoft Dynamics NAV and Business Central data — migrating
+                            it, checking it and turning it into models people can rely on.</p>
+                        <p class="reveal">Outside the day job I'm in the final stretch of my BSc CSIT at Bhaktapur
+                            Multiple Campus, and I keep growing my Python and machine learning skills through the side
+                            projects you'll find further down.</p>
+
+                        <dl class="kpis">
+                            <div class="kpi reveal">
+                                <dt>Since</dt>
+                                <dd class="kpi-value">Apr 2025</dd>
+                                <dd class="kpi-note">building BI professionally</dd>
+                            </div>
+                            <div class="kpi reveal">
+                                <dt>Rollouts</dt>
+                                <dd class="kpi-value"><span data-count="3">3</span></dd>
+                                <dd class="kpi-note">enterprise BI implementations</dd>
+                                <dd class="kpi-meter" aria-hidden="true"><span class="on"></span><span
+                                        class="on"></span><span class="on"></span></dd>
+                            </div>
+                            <div class="kpi reveal">
+                                <dt>Degree</dt>
+                                <dd class="kpi-value"><span data-count="8">8</span>th</dd>
+                                <dd class="kpi-note">semester of BSc CSIT</dd>
+                                <dd class="kpi-meter kpi-meter--8" aria-hidden="true"><span class="on"></span><span
+                                        class="on"></span><span class="on"></span><span class="on"></span><span
+                                        class="on"></span><span class="on"></span><span class="on"></span><span
+                                        class="half"></span></dd>
+                            </div>
+                        </dl>
+
+                        <a href="CVme.pdf" target="_blank" rel="noopener" class="btn btn-primary reveal">Download CV <i
+                                class="bx bx-download"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!--hobbies section design-->
-        <section class="hobbies" id="hobbies">
-            <h2 class="heading">My <span>hobbies</span></h2>
-
-            <h1 style="text-align: center;">Just like another introvert programmer and a tech enthusiast</h1>
-            <div class="portfolio-container">
-                <div style="margin: 2rem;" class="portfolio-box">
-                    <img src="img/football-min.jpeg" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>football</h4>
-                        <p>I love watching football.I follow laliga and other leagues too.I am a Barca fan.</p>
+        <!-- experience -->
+        <section class="experience" id="experience">
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <p class="eyebrow reveal"><span>02</span> / Experience</p>
+                        <h2 class="heading kinetic">
+                            <span class="line"><span>Where I've</span></span>
+                            <span class="line"><span class="accent">worked</span></span>
+                        </h2>
                     </div>
+                    <p class="section-lead reveal">Delivering business intelligence end to end, from the source
+                        database to the last chart on the report.</p>
                 </div>
 
-                <div style="margin: 2rem;" class="portfolio-box">
-                    <img src="img/space.webp" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>Astronomy</h4>
-                        <p>Fasinate with space.Follow different space missions.</p>
-                    </div>
-                </div>
+                <ol class="timeline">
+                    <li class="timeline-item reveal">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Apr 2025 — Present</span>
+                            <span class="timeline-org">Agile Solutions Pvt. Ltd.</span>
+                            <span class="timeline-place">Kathmandu, Nepal</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3>Associate BI Developer <span class="badge">Current</span></h3>
+                            <ul class="bullets">
+                                <li>Deliver BI solutions across Microsoft SQL Server, SSAS Multidimensional, MDX and
+                                    Power BI.</li>
+                                <li>Write and tune T-SQL stored procedures that reshape warehouse data for analysis.
+                                </li>
+                                <li>Model and maintain multidimensional cubes in Jet Data Manager for slice-and-dice
+                                    reporting.</li>
+                                <li>Ship Power BI reports covering sales, service, spare parts, HR and finance.</li>
+                                <li>Handle migration and reporting on Microsoft Dynamics NAV / Business Central
+                                    databases.</li>
+                                <li>Reconcile source systems, cubes and reports so the numbers always line up, and
+                                    suggest workflow improvements for business users.</li>
+                            </ul>
+                            <ul class="chips" aria-label="Technologies">
+                                <li>SQL Server</li>
+                                <li>SSAS</li>
+                                <li>MDX</li>
+                                <li>Power BI</li>
+                                <li>Jet Data Manager</li>
+                                <li>NAV / BC</li>
+                            </ul>
+                        </div>
+                    </li>
 
-                <div style="margin: 2rem;" class="portfolio-box">
-                    <img src="img/coding-min.jpeg" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>Coding</h4>
-                        <p>Learning coding to enhance and increase the power of computers and internet.</p>
-                    </div>
+                    <li class="timeline-item reveal">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Feb 2023 — Feb 2027</span>
+                            <span class="timeline-org">Bhaktapur Multiple Campus</span>
+                            <span class="timeline-place">Expected graduation</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3>BSc in Computer Science &amp; IT</h3>
+                            <p>Currently in the 8th semester, combining coursework with full-time BI work and
+                                machine learning side projects.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <h3 class="sub-heading reveal"><span class="sub-index">02.1</span> Key client projects</h3>
+                <div class="xp-grid">
+                    <article class="xp-card glow reveal">
+                        <div class="xp-top">
+                            <span class="xp-client">Gorkha Brewery · Carlsberg Group</span>
+                            <span class="xp-index">C/01</span>
+                        </div>
+                        <h4>Sales &amp; material requisition analytics</h4>
+                        <ul class="bullets">
+                            <li>SSAS cubes and MDX calculations behind the sales and requisition dashboards.</li>
+                            <li>Stored-procedure ETL moving ERP data into the warehouse via Jet Data Manager.</li>
+                            <li>Requirements turned into data models, plus SQL Server upkeep for integrity and speed.
+                            </li>
+                        </ul>
+                        <ul class="chips">
+                            <li>SSAS</li>
+                            <li>MDX</li>
+                            <li>ETL</li>
+                        </ul>
+                    </article>
+
+                    <article class="xp-card glow reveal">
+                        <div class="xp-top">
+                            <span class="xp-client">Agni Group · Mahindra Nepal</span>
+                            <span class="xp-index">C/02</span>
+                        </div>
+                        <h4>Sales, spare parts &amp; service analytics</h4>
+                        <ul class="bullets">
+                            <li>Cubes with dimensions, measures and MDX logic across three business lines.</li>
+                            <li>Warehouse transformations built on Dynamics NAV / Business Central data.</li>
+                            <li>Dashboards on top of the cubes, validated against source data.</li>
+                        </ul>
+                        <ul class="chips">
+                            <li>SSAS</li>
+                            <li>NAV / BC</li>
+                            <li>T-SQL</li>
+                        </ul>
+                    </article>
+
+                    <article class="xp-card xp-card--wide glow reveal">
+                        <div class="xp-wide-head">
+                            <div class="xp-top">
+                                <span class="xp-client">NMB Bank Ltd.</span>
+                                <span class="xp-index">C/03</span>
+                            </div>
+                            <h4>HRMS analytics dashboard</h4>
+                            <ul class="chips">
+                                <li>Power BI</li>
+                                <li>DAX</li>
+                                <li>Power Query</li>
+                            </ul>
+                        </div>
+                        <ul class="bullets">
+                            <li>Interactive Power BI report on workforce demographics, turnover and appraisals.</li>
+                            <li>Complex DAX measures over a data model tuned with Power Query.</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
 
+        <!-- tech stack -->
+        <section class="stack" id="stack">
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <p class="eyebrow reveal"><span>03</span> / Stack</p>
+                        <h2 class="heading kinetic">
+                            <span class="line"><span>Tech</span></span>
+                            <span class="line"><span class="accent">stack</span></span>
+                        </h2>
+                    </div>
+                    <p class="section-lead reveal">The engines, query languages and tools I use to move data from
+                        source systems to dashboards.</p>
+                </div>
 
-        <!--portfolio section design-->
+                <p class="stack-label reveal">Core competencies</p>
+                <div class="stack-grid">
+                    <div class="tile reveal">
+                        <span class="tile-index">01</span>
+                        <span class="tile-name">Python</span>
+                        <span class="tile-cat">Language</span>
+                    </div>
+                    <div class="tile reveal">
+                        <span class="tile-index">02</span>
+                        <span class="tile-name">PySpark</span>
+                        <span class="tile-cat">Distributed compute</span>
+                    </div>
+                    <div class="tile reveal">
+                        <span class="tile-index">03</span>
+                        <span class="tile-name">ClickHouse</span>
+                        <span class="tile-cat">Columnar OLAP</span>
+                    </div>
+                    <div class="tile reveal">
+                        <span class="tile-index">04</span>
+                        <span class="tile-name">SQL</span>
+                        <span class="tile-cat">Query · T-SQL</span>
+                    </div>
+                    <div class="tile reveal">
+                        <span class="tile-index">05</span>
+                        <span class="tile-name">Kafka</span>
+                        <span class="tile-cat">Event streaming</span>
+                    </div>
+                    <div class="tile reveal">
+                        <span class="tile-index">06</span>
+                        <span class="tile-name">Databricks</span>
+                        <span class="tile-cat">Lakehouse</span>
+                    </div>
+                </div>
+
+                <p class="stack-label reveal">BI &amp; tooling</p>
+                <div class="stack-grid stack-grid--sm">
+                    <div class="tile tile--sm reveal">
+                        <span class="tile-index">07</span>
+                        <span class="tile-name">SQL Server</span>
+                        <span class="tile-cat">RDBMS</span>
+                    </div>
+                    <div class="tile tile--sm reveal">
+                        <span class="tile-index">08</span>
+                        <span class="tile-name">SSAS · MDX</span>
+                        <span class="tile-cat">OLAP cubes</span>
+                    </div>
+                    <div class="tile tile--sm reveal">
+                        <span class="tile-index">09</span>
+                        <span class="tile-name">Power BI</span>
+                        <span class="tile-cat">Visualisation</span>
+                    </div>
+                    <div class="tile tile--sm reveal">
+                        <span class="tile-index">10</span>
+                        <span class="tile-name">DAX · M</span>
+                        <span class="tile-cat">Modelling</span>
+                    </div>
+                    <div class="tile tile--sm reveal">
+                        <span class="tile-index">11</span>
+                        <span class="tile-name">Jet Data Manager</span>
+                        <span class="tile-cat">ETL · DWH</span>
+                    </div>
+                    <div class="tile tile--sm reveal">
+                        <span class="tile-index">12</span>
+                        <span class="tile-name">Docker · Git</span>
+                        <span class="tile-cat">Tooling</span>
+                    </div>
+                </div>
+
+                <h3 class="sub-heading reveal"><span class="sub-index">03.1</span> Full toolkit</h3>
+                <dl class="skills">
+                    <div class="skill-group reveal">
+                        <dt>Databases &amp; SQL</dt>
+                        <dd>SQL Server, T-SQL, stored procedures, data transformation</dd>
+                    </div>
+                    <div class="skill-group reveal">
+                        <dt>Business intelligence</dt>
+                        <dd>Power BI, DAX, Power Query, SSAS Multidimensional, MDX, data modelling</dd>
+                    </div>
+                    <div class="skill-group reveal">
+                        <dt>Data engineering</dt>
+                        <dd>ETL, data warehousing, integration, validation, Dynamics NAV / BC data</dd>
+                    </div>
+                    <div class="skill-group reveal">
+                        <dt>Programming &amp; AI</dt>
+                        <dd>Python, SQL, data analysis, machine learning fundamentals</dd>
+                    </div>
+                    <div class="skill-group reveal">
+                        <dt>Tools</dt>
+                        <dd>SSMS, Power BI Desktop, Jet Data Manager, ClickHouse, Docker, Git, VS Code</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- projects -->
         <section class="portfolio" id="portfolio">
-            <h2 class="heading">Latest <span>Project</span></h2>
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <p class="eyebrow reveal"><span>04</span> / Work</p>
+                        <h2 class="heading kinetic">
+                            <span class="line"><span>Side</span></span>
+                            <span class="line"><span class="accent">projects</span></span>
+                        </h2>
+                    </div>
+                    <p class="section-lead reveal">Analytics and machine learning work I build to keep learning.</p>
+                </div>
 
-            <div class="portfolio-container">
+                <div class="projects">
+                    <article class="project glow reveal">
+                        <div class="project-media"><img src="img/powerbi.png" alt="Power BI project" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-index">P/01</span>
+                                <ul class="tags">
+                                    <li>Power BI</li>
+                                    <li>BI</li>
+                                </ul>
+                            </div>
+                            <h3>Power BI Reports</h3>
+                            <p>A collection of interactive Power BI dashboards and business intelligence reports
+                                exploring different datasets.</p>
+                            <div class="card-links">
+                                <a href="https://github.com/ChiefBibek/Power-BI-Project" target="_blank"
+                                    rel="noopener" aria-label="Power BI project on GitHub"><i
+                                        class="bx bxl-github"></i></a>
+                            </div>
+                        </div>
+                    </article>
 
+                    <article class="project glow reveal">
+                        <div class="project-media"><img src="img/Sentiment.png" alt="Sentiment Analysis project"
+                                loading="lazy"></div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-index">P/02</span>
+                                <ul class="tags">
+                                    <li>LSTM</li>
+                                    <li>NLP</li>
+                                </ul>
+                            </div>
+                            <h3>Sentiment Analysis</h3>
+                            <p>Sentiment analysis on the IMDB movie reviews dataset using an LSTM model.</p>
+                            <div class="card-links">
+                                <a href="https://github.com/ChiefBibek/Sentiment_Analysis" target="_blank"
+                                    rel="noopener" aria-label="Sentiment Analysis on GitHub"><i
+                                        class="bx bxl-github"></i></a>
+                                <a href="https://youtu.be/y5CEUNau34g?si=v8aezKzrV4bj4ieX" target="_blank"
+                                    rel="noopener" aria-label="Sentiment Analysis demo video"><i
+                                        class="bx bx-play"></i></a>
+                            </div>
+                        </div>
+                    </article>
 
+                    <article class="project glow reveal">
+                        <div class="project-media"><img src="img/digit.png" alt="Hand Digit Recognition project"
+                                loading="lazy"></div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-index">P/03</span>
+                                <ul class="tags">
+                                    <li>CNN</li>
+                                    <li>Vision</li>
+                                </ul>
+                            </div>
+                            <h3>Hand Digit Recognition</h3>
+                            <p>Handwritten digit recognition with CNN models.</p>
+                            <div class="card-links">
+                                <a href="https://github.com/ChiefBibek/Handwritten-digit-recognition-" target="_blank"
+                                    rel="noopener" aria-label="Hand Digit Recognition on GitHub"><i
+                                        class="bx bxl-github"></i></a>
+                                <a href="https://youtu.be/w5hlC74CAaI?si=OVc7feGWtaRgHu_x" target="_blank"
+                                    rel="noopener" aria-label="Hand Digit Recognition demo video"><i
+                                        class="bx bx-play"></i></a>
+                            </div>
+                        </div>
+                    </article>
 
-                <div class="portfolio-box">
-                    <img src="img/Sentiment.png" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>Sentiment Analysis</h4>
-                        <p>This repository contains a project for performing sentiment analysis on the IMDB movie reviews dataset using
-                            an LSTM model.</p>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="https://github.com/ChiefBibek/Sentiment_Analysis" target="_blank"><i class='bx bxl-github'></i></a>
-                            <a href="https://youtu.be/y5CEUNau34g?si=v8aezKzrV4bj4ieX" target="_blank"><i class='bx bx-play'></i></a>
+                    <article class="project glow reveal">
+                        <div class="project-media"><img src="img/landing.png" alt="Movie Recommendation project"
+                                loading="lazy"></div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-index">P/04</span>
+                                <ul class="tags">
+                                    <li>TF-IDF</li>
+                                    <li>RecSys</li>
+                                </ul>
+                            </div>
+                            <h3>Movie Recommendation</h3>
+                            <p>A recommendation system using TF-IDF and cosine similarity to suggest movies based on
+                                user preferences.</p>
+                            <div class="card-links">
+                                <a href="https://github.com/ChiefBibek/Movie-Recommendation-System" target="_blank"
+                                    rel="noopener" aria-label="Movie Recommendation on GitHub"><i
+                                        class="bx bxl-github"></i></a>
+                                <a href="https://movie-recommendation-system-frontend.onrender.com/" target="_blank"
+                                    rel="noopener" aria-label="Movie Recommendation live site"><i
+                                        class="bx bx-link-external"></i></a>
+                            </div>
                         </div>
-                
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="img/digit.png" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>Hand Digit Recognition</h4>
-                        <p>This repository contains a project for Hand Digit Recognition with CNN models</p>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="https://github.com/ChiefBibek/Handwritten-digit-recognition-" target="_blank"><i class='bx bxl-github'></i></a>
-                            <a href="https://youtu.be/w5hlC74CAaI?si=OVc7feGWtaRgHu_x" target="_blank"><i class='bx bx-play'></i></a>
+                    </article>
+
+                    <article class="project glow reveal">
+                        <div class="project-media"><img src="img/rasa.jpg" alt="Chitchat chatbot project"
+                                loading="lazy"></div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-index">P/05</span>
+                                <ul class="tags">
+                                    <li>Rasa</li>
+                                    <li>NLU</li>
+                                </ul>
+                            </div>
+                            <h3>Chat Bot</h3>
+                            <p>Chitchat, a chatbot powered by Rasa for COVID-19 FAQs.</p>
+                            <div class="card-links">
+                                <a href="https://github.com/ChiefBibek/Chitchat" target="_blank" rel="noopener"
+                                    aria-label="Chitchat on GitHub"><i class="bx bxl-github"></i></a>
+                                <a href="https://github.com/ChiefBibek/Chitchat/raw/main/474680422_626176006672985_4669382593958033400_n.jpg"
+                                    target="_blank" rel="noopener" aria-label="Chitchat screenshot"><i
+                                        class="bx bx-image"></i></a>
+                            </div>
                         </div>
-                
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="img/landing.png" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>MovieRecommendation</h4>
-                        <p>This project implements a Movie Recommendation System using TF-IDF and cosine similarities for recommendations based on user preferences.</p>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="https://github.com/ChiefBibek/Movie-Recommendation-System" target="_blank"><i class='bx bxl-github'></i></a>
-                            <a href="https://movie-recommendation-system-frontend.onrender.com/" target="_blank"><i class='bx bx-link'></i></a>
+                    </article>
+
+                    <article class="project glow reveal">
+                        <div class="project-media"><img src="img/kampana.png" alt="Kampana project" loading="lazy">
                         </div>
-                
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="img/rasa.jpg" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>Chat Bot</h4>
-                        <p>This is a chatbot named Chitchat powered by Rasa for COVID-19 FAQs.</p>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="https://github.com/ChiefBibek/Chitchat" target="_blank"><i class='bx bxl-github'></i></a>
-                            <a href="https://github.com/ChiefBibek/Chitchat/raw/main/474680422_626176006672985_4669382593958033400_n.jpg" target="_blank"><i class='bx bx-image'></i></a>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-index">P/06</span>
+                                <ul class="tags">
+                                    <li>Python</li>
+                                    <li>Signal</li>
+                                </ul>
+                            </div>
+                            <h3>Kampana</h3>
+                            <p>Seismic detection project that analyzes and visualizes seismic activity on the Moon and
+                                Mars using Python algorithms.</p>
+                            <div class="card-links">
+                                <a href="https://github.com/ChiefBibek/Kampana" target="_blank" rel="noopener"
+                                    aria-label="Kampana on GitHub"><i class="bx bxl-github"></i></a>
+                                <a href="https://kampana.earth" target="_blank" rel="noopener"
+                                    aria-label="Kampana live site"><i class="bx bx-link-external"></i></a>
+                            </div>
                         </div>
-                
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="img/kampana.png" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>Kampana</h4>
-                        <p>Seismic detection project that analyzes and visualizes seismic activity on the Moon and Mars using Python algorithms.</p>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="https://github.com/ChiefBibek/Kampana" target="_blank"><i class='bx bxl-github'></i></a>
-                            <a href="https://kampana.earth" target="_blank"><i class='bx bx-play'></i></a>
-                        </div>
-                
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="img/powerbi.png" alt="loading">
-                    <div class="portfolio-layer">
-                        <h4>Power BI</h4>
-                        <p>This project showcases various data visualizations and business intelligence reports created using Power BI.</p>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="https://github.com/ChiefBibek/Power-BI-Project" target="_blank"><i class='bx bxl-github'></i></a>
-                            
-                        </div>
-                
-                    </div>
+                    </article>
                 </div>
             </div>
-
         </section>
 
+        <!-- hobbies -->
+        <section class="hobbies" id="hobbies">
+            <div class="container">
+                <div class="section-head section-head--split">
+                    <div>
+                        <p class="eyebrow reveal"><span>05</span> / Hobbies</p>
+                        <h2 class="heading kinetic">
+                            <span class="line"><span>My</span></span>
+                            <span class="line"><span class="accent">hobbies</span></span>
+                        </h2>
+                    </div>
+                    <p class="section-lead reveal">Just like another introvert programmer and a tech enthusiast.</p>
+                </div>
 
-        <!-- contact section start -->
+                <div class="hobby-grid">
+                    <article class="hobby glow reveal">
+                        <div class="hobby-media"><img src="img/football-min.jpeg" alt="Football" loading="lazy"></div>
+                        <div class="hobby-body">
+                            <span class="project-index">H/01</span>
+                            <h3>Football</h3>
+                            <p>I love watching football. I follow LaLiga and other leagues too. I am a Barça fan.</p>
+                        </div>
+                    </article>
+
+                    <article class="hobby glow reveal">
+                        <div class="hobby-media"><img src="img/space.webp" alt="Outer space" loading="lazy"></div>
+                        <div class="hobby-body">
+                            <span class="project-index">H/02</span>
+                            <h3>Astronomy</h3>
+                            <p>Fascinated with space. I follow different space missions.</p>
+                        </div>
+                    </article>
+
+                    <article class="hobby glow reveal">
+                        <div class="hobby-media"><img src="img/coding-min.jpeg" alt="Code on a screen" loading="lazy">
+                        </div>
+                        <div class="hobby-body">
+                            <span class="project-index">H/03</span>
+                            <h3>Coding</h3>
+                            <p>Learning to code to enhance and increase the power of computers and the internet.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- contact -->
         <section class="contact" id="contact">
-            <div class="max-width">
-                <h2 class="main">Contact me</h2>
-                <div class="contact-content">
-                    <div class="column left">
-                        <div class="text">Get in Touch</div>
-                        <p style="font-size: 16px;"> Don't hestitate, I would love to talk about new ideas.</p>
-                        <div class="icons">
-                            <div class="row">
-                                <i style="color: #8956f1;" class="fas fa-user"></i>
-                                <div style="font-size: 16px;" class="info">
-                                    <div class="head">Name</div>
-                                    <div style="color: white;" class="sub-title">Bibek Bikram Shahi</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <i style="color: #8956f1;" class="fas fa-map-marker-alt"></i>
-                                <div style="font-size: 16px;" class="info">
-                                    <div class="head">Address</div>
-                                    <div style="color: white;" class="sub-title">Kathmandu,Nepal</div>
-                                </div>
-                            </div>
-                            <div class="row">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow reveal"><span>06</span> / Contact</p>
+                    <h2 class="heading kinetic">
+                        <span class="line"><span>Contact</span></span>
+                        <span class="line"><span class="accent">me</span></span>
+                    </h2>
+                    <a class="contact-mail reveal" href="mailto:bibekbikramshahi6666@gmail.com">bibekbikramshahi6666@gmail.com
+                        <i class="bx bx-up-arrow-alt"></i></a>
+                </div>
 
-                                <a href="mailto:bibekbikramshahi6666@gmail.com" target="_blank"><i
-                                        style="color: #8956f1;" class="fas fa-envelope"></i></a>
-                                <div style="font-size: 16px;" class="info">
-                                    <div class="head">Email</div>
-                                    <div style="color: white;" class="sub-title">bibekbikramshahi6666@gmail.com</div>
+                <div class="contact-content">
+                    <div class="contact-info reveal">
+                        <h3>Get in touch</h3>
+                        <p>Got a reporting headache, a dashboard idea or a data role in mind? I'm happy to talk it
+                            through.</p>
+
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-icon info-avatar"><img src="img/me-min.png" alt=""></span>
+                                <div>
+                                    <span class="info-label">Name</span>
+                                    <span class="info-value">Bibek Bikram Shahi</span>
                                 </div>
+                            </li>
+                            <li>
+                                <span class="info-icon"><i class="bx bx-map"></i></span>
+                                <div>
+                                    <span class="info-label">Address</span>
+                                    <span class="info-value">Kathmandu, Nepal</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="info-icon"><i class="bx bx-envelope"></i></span>
+                                <div>
+                                    <span class="info-label">Email</span>
+                                    <a class="info-value" href="mailto:bibekbikramshahi6666@gmail.com">bibekbikramshahi6666@gmail.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="info-icon"><i class="bx bx-phone"></i></span>
+                                <div>
+                                    <span class="info-label">Phone</span>
+                                    <a class="info-value" href="tel:+9779844801695">+977 9844801695</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="contact-social">
+                            <span class="info-label">Social</span>
+                            <div class="social-media">
+                                <a href="https://www.facebook.com/bibek.bikramshahi" target="_blank" rel="noopener"
+                                    aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+                                <a href="https://twitter.com/Bibekbikram123" target="_blank" rel="noopener"
+                                    aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+                                <a href="https://www.instagram.com/bibek_b_shahi/" target="_blank" rel="noopener"
+                                    aria-label="Instagram"><i class="bx bxl-instagram-alt"></i></a>
+                                <a href="https://www.linkedin.com/in/bibekbikramshahi" target="_blank" rel="noopener"
+                                    aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                                <a href="https://github.com/ChiefBibek" target="_blank" rel="noopener"
+                                    aria-label="GitHub"><i class="bx bxl-github"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="column right">
-                        <div class="text">Message me</div>
-                        <form class="contact-form" action="https://formspree.io/f/mqkolazq" method="POST">
-                            <div class="fields">
-                                <div class="field name">
-                                    <input type="text" name="name" class="name" placeholder="Name">
-                                </div>
-                                <div class="field email">
-                                    <input type="text" name="Email" class="email-input" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <input type="text" name="message" class="subject" placeholder="Subject">
-                            </div>
-                            <div class="field textarea">
-                                <textarea class="message" name="message" cols="30" rows="10"
-                                    placeholder="Message.."></textarea>
-                            </div>
-                            <div class="button-area">
-                                <button class="send-msg" type="submit" name="send">Send message</button>
-                            </div>
-                        </form>
-                    </div>
+
+                    <form class="contact-form reveal" action="https://formspree.io/f/mqkolazq" method="POST">
+                        <div class="form-head">
+                            <h3>Message me</h3>
+                        </div>
+                        <div class="fields">
+                            <label class="field">
+                                <span class="field-label">Name</span>
+                                <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+                            </label>
+                            <label class="field">
+                                <span class="field-label">Email</span>
+                                <input type="email" name="Email" placeholder="you@company.com" autocomplete="email"
+                                    required>
+                            </label>
+                        </div>
+                        <label class="field">
+                            <span class="field-label">Subject</span>
+                            <input type="text" name="subject" placeholder="Subject">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">Message</span>
+                            <textarea name="message" rows="6" placeholder="Message…" required></textarea>
+                        </label>
+                        <button class="btn btn-primary" type="submit">Send message <i class="bx bx-send"></i></button>
+                    </form>
                 </div>
             </div>
-            <div class="footer-iconTop">
-                <a href="#home"><i class='bx bx-up-arrow-alt bx-fade-up'></i></a>
-            </div>
         </section>
+    </main>
 
-        <!--footer design-->
-        <footer class="footer">
-            <div class="footer-text">
-                <p class="text">Copyright <i class="fa fa-copyright"></i> And Designed By Bibek Bikram Shahi.</p>
-
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-mark" aria-hidden="true">Bibek Bikram Shahi</p>
+            <div class="footer-inner">
+                <p>&copy; Designed by Bibek Bikram Shahi.</p>
+                <div class="footer-actions">
+                    <div class="social-media">
+                        <a href="https://www.linkedin.com/in/bibekbikramshahi" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                        <a href="https://github.com/ChiefBibek" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="bx bxl-github"></i></a>
+                    </div>
+                    <a href="#home" class="footer-iconTop" aria-label="Back to top"><i
+                            class="bx bx-up-arrow-alt"></i></a>
+                </div>
             </div>
+        </div>
+    </footer>
 
-
-
-        </footer>
-
-
-        <!--scroll reveal-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
-        <!-- typed js -->
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-        <!-- other head elements -->
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-
-
-        <!--custom js-->
-        <script src="script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-
-
-        <script>
-            var loader = document.getElementById("loaderContainer");
-            window.addEventListener("load", function () {
-                loader.style.display = "none";
-            })
-            document.body.style.overflow = "hidden";
-        </script>
+    <!-- custom js -->
+    <script src="script.js"></script>
+    <script src="hero3d.js" defer></script>
 </body>
 
 </html>

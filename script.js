@@ -1,65 +1,152 @@
-/*========== toggle icon navbar =========*/
-let menuIcon = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const canHover = window.matchMedia("(hover: hover)").matches;
 
-menuIcon.onclick = () => {
-  menuIcon.classList.toggle("bx-x");
-  navbar.classList.toggle("active");
+/*========== loader =========*/
+const loader = document.getElementById("loaderContainer");
+document.body.classList.add("is-loading");
+
+window.addEventListener("load", () => {
+  loader.classList.add("is-hidden");
+  document.body.classList.remove("is-loading");
+  // let the hero title rise once the loader has started fading
+  document.querySelectorAll(".hero .kinetic").forEach((el) => el.classList.add("is-visible"));
+});
+
+/*========== toggle icon navbar =========*/
+const menuIcon = document.querySelector("#menu-icon");
+const menuGlyph = menuIcon.querySelector("i");
+const navbar = document.querySelector(".navbar");
+
+const setMenu = (open) => {
+  navbar.classList.toggle("active", open);
+  menuGlyph.classList.toggle("bx-menu", !open);
+  menuGlyph.classList.toggle("bx-x", open);
+  menuIcon.setAttribute("aria-expanded", String(open));
 };
 
-/*========== scroll section active Link =========*/
-let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll("header nav a");
+menuIcon.addEventListener("click", () => {
+  setMenu(!navbar.classList.contains("active"));
+});
 
-window.onscroll = () => {
+navbar.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setMenu(false));
+});
+
+/*========== scroll: active link, sticky header, progress, hero parallax =========*/
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("header nav a");
+const header = document.querySelector("header");
+const progress = document.querySelector(".scroll-progress");
+const hero = document.querySelector(".hero");
+const parallaxLines = reduceMotion ? [] : document.querySelectorAll("[data-parallax]");
+
+let ticking = false;
+
+const onScroll = () => {
+  const y = window.scrollY;
+  const probe = y + window.innerHeight * 0.35;
+
   sections.forEach((sec) => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute("id");
-
-    if (top >= offset && top < offset + height) {
-      navLinks.forEach((links) => {
-        links.classList.remove("active");
-        document
-          .querySelector("header nav a[href*=" + id + "]")
-          .classList.add("active");
+    if (probe >= sec.offsetTop && probe < sec.offsetTop + sec.offsetHeight) {
+      const id = sec.getAttribute("id");
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + id);
       });
     }
   });
-  /*========== sticky navbar =========*/
-  let header = document.querySelector("header");
 
-  header.classList.toggle("sticky", window.scrollY > 100);
+  header.classList.toggle("sticky", y > 24);
 
-  /*================ remove toggle icon and navbar when click navbar link  (scroll)=============*/
-  menuIcon.classList.remove("bx-x");
-  navbar.classList.remove("active");
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+
+  // hero name lines drift apart while the hero is on screen
+  if (y < hero.offsetHeight) {
+    parallaxLines.forEach((line) => {
+      line.style.transform = `translate3d(${y * parseFloat(line.dataset.parallax)}px, 0, 0)`;
+    });
+  }
+
+  ticking = false;
 };
 
-/*========== scroll reveal =========*/
-ScrollReveal({
-  // reset: true,
-  distance: "80px",
-  duration: 2000,
-  delay: 200,
-});
-
-ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
-ScrollReveal().reveal(
-  ".home-img, .services-container, .portfolio-box, .contact form",
-  { origin: "bottom" }
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(onScroll);
+    }
+  },
+  { passive: true }
 );
-ScrollReveal().reveal(".home-content h1, .about-img", { origin: "left" });
-ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
+window.addEventListener("resize", onScroll, { passive: true });
+onScroll();
 
-/*========== typed js =========*/
-var typed = new Typed(".multiple", {
-  strings: ["Student", "Data Analyst", "techie", "AI/ML Enthusiast", "Student"],
-  typeSpeed: 100,
-  backSpeed: 60,
-  loop: true,
+/*========== kinetic headings: index each masked line =========*/
+document.querySelectorAll(".kinetic").forEach((heading) => {
+  heading.querySelectorAll(".line").forEach((line, i) => line.style.setProperty("--i", i));
 });
+
+/*========== scroll reveal + count-up =========*/
+const reveals = document.querySelectorAll(".reveal, .kinetic:not(.hero .kinetic)");
+
+// stagger siblings that share a parent (cards in a grid, lines of copy)
+reveals.forEach((el) => {
+  const siblings = [...el.parentElement.children].filter((c) => c.classList.contains("reveal"));
+  const index = siblings.indexOf(el);
+  if (index > 0) el.style.setProperty("--reveal-delay", Math.min(index, 6) * 80 + "ms");
+});
+
+const countUp = (el) => {
+  const target = parseInt(el.dataset.count, 10);
+  if (reduceMotion || !target) return;
+  const duration = 1200;
+  const start = performance.now();
+  const step = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 4);
+    el.textContent = String(Math.round(target * eased));
+    if (t < 1) requestAnimationFrame(step);
+  };
+  el.textContent = "0";
+  requestAnimationFrame(step);
+};
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add("is-visible");
+        observer.unobserve(el);
+        el.querySelectorAll("[data-count]").forEach(countUp);
+        // drop the stagger once revealed so hover transitions respond immediately
+        setTimeout(() => el.style.removeProperty("--reveal-delay"), 1400);
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+  );
+  reveals.forEach((el) => observer.observe(el));
+} else {
+  reveals.forEach((el) => el.classList.add("is-visible"));
+}
+
+/*========== cursor-tracked card glow =========*/
+if (canHover) {
+  document.querySelectorAll(".glow").forEach((card) => {
+    card.addEventListener(
+      "pointermove",
+      (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", e.clientX - rect.left + "px");
+        card.style.setProperty("--my", e.clientY - rect.top + "px");
+      },
+      { passive: true }
+    );
+  });
+}
 
 // Disable right-click
 document.addEventListener("contextmenu", (e) => e.preventDefault());
@@ -71,7 +158,7 @@ function ctrlShiftKey(e, keyCode) {
 document.onkeydown = (e) => {
   // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
   if (
-    event.keyCode === 123 ||
+    e.keyCode === 123 ||
     ctrlShiftKey(e, "I") ||
     ctrlShiftKey(e, "J") ||
     ctrlShiftKey(e, "C") ||
