@@ -2,15 +2,25 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const canHover = window.matchMedia("(hover: hover)").matches;
 
 /*========== loader =========*/
+// Lift the loader as soon as the fonts are in, and never later than 1.5s —
+// images keep loading behind the page instead of holding visitors up.
 const loader = document.getElementById("loaderContainer");
 document.body.classList.add("is-loading");
 
-window.addEventListener("load", () => {
+let loaderHidden = false;
+const hideLoader = () => {
+  if (loaderHidden) return;
+  loaderHidden = true;
   loader.classList.add("is-hidden");
   document.body.classList.remove("is-loading");
   // let the hero title rise once the loader has started fading
   document.querySelectorAll(".hero .kinetic").forEach((el) => el.classList.add("is-visible"));
-});
+};
+
+Promise.race([
+  document.fonts ? document.fonts.ready : Promise.resolve(),
+  new Promise((resolve) => setTimeout(resolve, 1500)),
+]).then(hideLoader);
 
 /*========== toggle icon navbar =========*/
 const menuIcon = document.querySelector("#menu-icon");
@@ -148,21 +158,37 @@ if (canHover) {
   });
 }
 
-// Disable right-click
-document.addEventListener("contextmenu", (e) => e.preventDefault());
+/*========== contact form: submit in the background, confirm inline =========*/
+const form = document.querySelector(".contact-form");
+const formStatus = form.querySelector(".form-status");
+const submitBtn = form.querySelector('button[type="submit"]');
+const submitLabel = submitBtn.innerHTML;
 
-function ctrlShiftKey(e, keyCode) {
-  return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-}
-
-document.onkeydown = (e) => {
-  // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
-  if (
-    e.keyCode === 123 ||
-    ctrlShiftKey(e, "I") ||
-    ctrlShiftKey(e, "J") ||
-    ctrlShiftKey(e, "C") ||
-    (e.ctrlKey && e.keyCode === "U".charCodeAt(0))
-  )
-    return false;
+const showStatus = (type, message) => {
+  formStatus.hidden = false;
+  formStatus.dataset.state = type;
+  formStatus.textContent = message;
 };
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending…";
+  formStatus.hidden = true;
+
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+    if (!res.ok) throw new Error(res.status);
+    form.reset();
+    showStatus("success", "Thanks — your message is on its way. I'll get back to you soon.");
+  } catch {
+    showStatus("error", "Something went wrong sending that. Please email me at bibekbikramshahi6666@gmail.com.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = submitLabel;
+  }
+});

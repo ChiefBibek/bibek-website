@@ -1,27 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>404 Error Page</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="errors.css">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#04060a">
+    <title>Page not found — Bibek Bikram Shahi</title>
+    <!-- root-relative paths: GitHub Pages serves this file at any missing URL, however deep -->
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/errors.css">
 </head>
-<body>
-    <div class="wrapper">
-        <h2>Oops! Page not found.</h2>
-        <div>
-            <img src="404.svg" alt="404">
+
+<body class="error-page">
+    <header class="error-header">
+        <a href="/" class="logo" aria-label="Bibek Bikram Shahi — home">
+            <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+                <rect x="4" y="22" width="8" height="14" />
+                <rect x="16" y="14" width="8" height="22" />
+                <rect x="28" y="4" width="8" height="32" />
+            </svg>
+            <span class="logo-word">Bibek<span class="accent">.</span></span>
+        </a>
+    </header>
+
+    <main class="error-wrap">
+        <p class="eyebrow"><span>404</span> / Not found</p>
+
+        <h1 class="error-code" aria-label="404">
+            <span aria-hidden="true">4</span><span class="outline" aria-hidden="true">0</span><span
+                aria-hidden="true">4</span>
+        </h1>
+
+        <figure class="missing-chart" aria-hidden="true">
+            <div class="missing-bars">
+                <span style="height: 35%"></span>
+                <span style="height: 55%"></span>
+                <span style="height: 45%"></span>
+                <span class="missing" style="height: 80%"><em>null</em></span>
+                <span style="height: 62%"></span>
+                <span style="height: 90%"></span>
+            </div>
+        </figure>
+
+        <h2 class="error-title">This page isn't in the dataset</h2>
+        <p class="error-text">It may have moved, or the link might have a typo. Let's get you back to something
+            that exists.</p>
+
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary">Back to home <i class="bx bx-right-arrow-alt"></i></a>
+            <a href="/game" class="btn btn-ghost">Play a game</a>
+            <a href="/worldCup" class="btn btn-ghost">Football links</a>
         </div>
-        <h4>We can't find the page you're looking for.</h4>
-        <a href="https://bibekbikramshahi.com.np/#home" >
-        <button type="button" class="main-btn">GO BACK HOME</button>
-            </a>
-            <a href="https://bibekbikramshahi.com.np/game" >
-                 <button type="button" class="main-btn">Play a game</button>
-                     </a>
-            <a href="https://bibekbikramshahi.com.np/worldCup" >
-                 <button type="button" class="main-btn">Football Links</button>
-                     </a>
-        </div>
+    </main>
 </body>
+
 </html>

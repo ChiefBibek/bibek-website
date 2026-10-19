@@ -152,8 +152,16 @@ Reduced motion: everything shows instantly and the chart renders one still frame
 ## Components (reference)
 
 - **Eyebrow:** mono `--text-xs`, uppercase, with the index in accent: `01 / About`.
+- **Logo:** a three-bar column-chart mark (`--chart-mid`, `#2b8ff0`, accent) plus an Anton
+  "BIBEK." wordmark with an accent full stop. On hover the bars re-chart (spring scaleY).
+  The favicon is the same mark on a dark tile: `img/favicon.svg`, plus `favicon-32.png`,
+  `favicon-48.png` and `apple-touch-icon.png` as fallbacks.
 - **Mini bars:** a three-bar chart mark (45/75/100 %) in accent, used in the hero kicker.
-- **Loader:** five bars bouncing in sequence.
+- **Loader:** five bars bouncing in sequence. It lifts as soon as the fonts load and never
+  later than 1.5 s; images keep loading behind the page.
+- **Form status:** an inline message under the submit button, with an accent left rule on
+  accent-soft for success and `#f87171` for errors. The form submits to Formspree in the
+  background, and a hidden `_gotcha` field acts as the spam trap.
 - **Button / primary:** accent fill with dark text, square, Inter 600 uppercase. On hover it
   inverts to an outline with accent text.
 - **Button / ghost:** `--color-border-strong` outline. On hover the border and text turn accent.
@@ -178,6 +186,17 @@ Reduced motion: everything shows instantly and the chart renders one still frame
 - **Chip / tag:** square, hairline, mono `--text-2xs` uppercase.
 - **Input:** surface fill, hairline, square. On focus the border turns accent with a soft glow.
 - **Focus visible:** 2 px accent outline with a 3 px offset.
+
+## Other surfaces
+
+- **404 page** (`404.html` + `errors.css`, built on the `style.css` tokens): a chart-grid
+  background, Anton "404" with an accent-outlined 0, and a bar chart with one dashed `null`
+  bar. All asset paths are root-relative, because GitHub Pages serves the page at any
+  missing URL depth.
+- **Link-preview card** (`img/og-card.jpg`, 1200×630, about 100 KB): the kicker, the name in
+  three lines, the tagline, the URL, and the sticker portrait over a column-chart silhouette.
+  It's referenced by the Open Graph and Twitter tags in `index.html`.
+- **Images:** project screenshots ship as WebP, capped at 1400 px wide (≈2× the largest card).
 
 ## Breakpoints
 
